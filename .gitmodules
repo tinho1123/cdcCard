@@ -1,0 +1,6 @@
+[submodule "backend_cdcCard"]
+	path = backend_cdcCard
+	url = https://github.com/tinho1123/backend_cdcCard.git
+[submodule "frontend_cdcCard"]
+	path = frontend_cdcCard
+	url = https://github.com/tinho1123/frontend_cdcCard.git

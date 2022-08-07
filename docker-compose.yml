@@ -1,0 +1,31 @@
+version: "3.9" 
+services:
+  db:
+    image: mysql
+    volumes:
+      - ~/apps/mysql:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_PASSWORD=123456
+      - MYSQL_DATABASE=DB_cdc
+    ports:
+      - 3307:3306
+
+  api:
+    image: node:16
+    build: ./backend_cdcCard
+    container_name: cdc-api
+    environment:
+      - API_PORT=3001
+    ports:
+      - 3001:3001
+    depends_on:
+      - db
+  web: 
+    build: ./frontend_cdcCard
+    container_name: cdc-web
+    environment:
+      - REACT_APP_HOSTNAME=localhost:3001
+    depends_on:
+      - api
