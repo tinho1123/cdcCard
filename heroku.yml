@@ -3,4 +3,4 @@ build:
     web: docker-compose.yml
 
 run:
-  web: docker-compose build && docker-compose up
+  web: npm start
